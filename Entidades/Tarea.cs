@@ -6,7 +6,7 @@ namespace ProyectoPert.Entidades
 {
     /// <summary>
     /// Representa una tarea individual dentro del proyecto PERT.
-    [cite_start]/// Almacena todos los datos de entrada y los resultados de los cálculos. 
+    /// Almacena todos los datos de entrada y los resultados de los cálculos. 
     /// </summary>
     public class Tarea
     {
@@ -28,7 +28,7 @@ namespace ProyectoPert.Entidades
         public bool EsCritica { get; set; }
 
         // --- Relaciones con otras Tareas ---
-        [cite_start]// El documento especifica una lista de sucesores. [cite: 182, 186]
+        // El documento especifica una lista de sucesores. [cite: 182, 186]
         // Añadimos también una lista de predecesores para facilitar los cálculos del pase hacia adelante.
         public ListaSucesores Sucesores { get; set; }
         public ListaSucesores Predecesores { get; set; }
@@ -55,7 +55,7 @@ namespace ProyectoPert.Entidades
             Holgura = 0;
             EsCritica = false;
 
-            [cite_start]// Cada tarea tendrá sus propias listas de dependencias. [cite: 182]
+            // Cada tarea tendrá sus propias listas de dependencias. [cite: 182]
             // Estas serán instancias de nuestras listas enlazadas personalizadas.
             Sucesores = new ListaSucesores();
             Predecesores = new ListaSucesores();
