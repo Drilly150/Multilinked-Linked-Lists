@@ -1,0 +1,14 @@
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\obj\Debug\net9.0\Multilinked-Linked-Lists.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\obj\Debug\net9.0\Multilinked-Linked-Lists.AssemblyInfoInputs.cache
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\obj\Debug\net9.0\Multilinked-Linked-Lists.AssemblyInfo.cs
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\obj\Debug\net9.0\Multilinked-Linked-Lists.csproj.CoreCompileInputs.cache
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\bin\Debug\net9.0\Multilinked-Linked-Lists.exe
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\bin\Debug\net9.0\Multilinked-Linked-Lists.deps.json
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\bin\Debug\net9.0\Multilinked-Linked-Lists.runtimeconfig.json
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\bin\Debug\net9.0\Multilinked-Linked-Lists.dll
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\bin\Debug\net9.0\Multilinked-Linked-Lists.pdb
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\obj\Debug\net9.0\Multilinked-Linked-Lists.dll
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\obj\Debug\net9.0\refint\Multilinked-Linked-Lists.dll
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\obj\Debug\net9.0\Multilinked-Linked-Lists.pdb
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\obj\Debug\net9.0\Multilinked-Linked-Lists.genruntimeconfig.cache
+C:\Users\luisa\Desktop\Multilinked-Linked-Lists\obj\Debug\net9.0\ref\Multilinked-Linked-Lists.dll

@@ -67,7 +67,7 @@ namespace ProyectoPert.Servicios
         {
             Console.WriteLine("\n--- LISTA DE TAREAS Y RESULTADOS PERT ---");
             string header = String.Format("{0,-7} | {1,-25} | {2,-5} | {3,-5} | {4,-5} | {5,-5} | {6,-5} | {7,-8} | {8,-10}",
-                                          "TAREA", "DESCRIPCIÓN", "Te", "ES", "EF", "LS", "LF", "HOLGURA", "¿CRÍTICA?");
+                                            "TAREA", "DESCRIPCIÓN", "Te", "ES", "EF", "LS", "LF", "HOLGURA", "¿CRÍTICA?");
             Console.WriteLine(header);
             Console.WriteLine(new string('-', header.Length));
 
@@ -82,8 +82,8 @@ namespace ProyectoPert.Servicios
             {
                 var t = actual.Dato;
                 string linea = String.Format("{0,-7} | {1,-25} | {2,-5:F1} | {3,-5:F1} | {4,-5:F1} | {5,-5:F1} | {6,-5:F1} | {7,-8:F1} | {8,-10}",
-                                             t.Id, t.Descripcion.Length > 25 ? t.Descripcion.Substring(0, 22) + "..." : t.Descripcion,
-                                             t.TiempoEsperado, t.ES, t.EF, t.LS, t.LF, t.Holgura, (t.EsCritica ? "Sí" : "No"));
+                                                t.Id, t.Descripcion.Length > 25 ? t.Descripcion.Substring(0, 22) + "..." : t.Descripcion,
+                                                t.TiempoEsperado, t.ES, t.EF, t.LS, t.LF, t.Holgura, (t.EsCritica ? "Sí" : "No"));
                 Console.WriteLine(linea);
                 actual = actual.Siguiente;
             }

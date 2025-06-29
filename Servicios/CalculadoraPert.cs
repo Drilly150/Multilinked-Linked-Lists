@@ -20,10 +20,10 @@ namespace ProyectoPert.Servicios
             while (actual != null)
             {
                 var tarea = actual.Dato;
-                [cite_start]// Fórmula del Tiempo Esperado (Te) 
+                // Fórmula del Tiempo Esperado (Te) 
                 tarea.TiempoEsperado = (tarea.TiempoOptimista + 4 * tarea.TiempoMasProbable + tarea.TiempoPesimista) / 6;
                 
-                [cite_start]// Fórmula de la Varianza (V) 
+                // Fórmula de la Varianza (V) 
                 tarea.Varianza = Math.Pow((tarea.TiempoPesimista - tarea.TiempoOptimista) / 6, 2);
                 
                 actual = actual.Siguiente;
@@ -31,7 +31,7 @@ namespace ProyectoPert.Servicios
         }
 
         /// <summary>
-        [cite_start]/// Paso 2: Realiza el Pase Adelante para calcular ES (Inicio Temprano) y EF (Finalización Temprana). [cite: 23]
+        /// Paso 2: Realiza el Pase Adelante para calcular ES (Inicio Temprano) y EF (Finalización Temprana). [cite: 23]
         /// </summary>
         public void CalcularPaseAdelante(ListaTareas listaTareas)
         {
@@ -40,14 +40,14 @@ namespace ProyectoPert.Servicios
             {
                 var tarea = actual.Dato;
                 
-                [cite_start]// Las tareas sin predecesoras comienzan en tiempo 0. [cite: 26]
+                // Las tareas sin predecesoras comienzan en tiempo 0. [cite: 26]
                 if (tarea.Predecesores.GetInicio() == null)
                 {
                     tarea.ES = 0;
                 }
                 else
                 {
-                    [cite_start]// El ES es el máximo de los EF de todas sus predecesoras. 
+                    // El ES es el máximo de los EF de todas sus predecesoras. 
                     double maxEF_Predecesoras = 0;
                     NodoSucesor? predecesor = tarea.Predecesores.GetInicio();
                     while (predecesor != null)
@@ -62,7 +62,7 @@ namespace ProyectoPert.Servicios
                     tarea.ES = maxEF_Predecesoras;
                 }
 
-                [cite_start]// La Finalización Temprana (EF) se calcula como ES + Te. 
+                // La Finalización Temprana (EF) se calcula como ES + Te. 
                 tarea.EF = tarea.ES + tarea.TiempoEsperado;
                 
                 actual = actual.Siguiente;
@@ -70,11 +70,11 @@ namespace ProyectoPert.Servicios
         }
 
         /// <summary>
-        [cite_start]/// Paso 3: Realiza el Pase Hacia Atrás para calcular LF (Finalización Tardía) y LS (Inicio Tardío). [cite: 33]
+        /// Paso 3: Realiza el Pase Hacia Atrás para calcular LF (Finalización Tardía) y LS (Inicio Tardío). [cite: 33]
         /// </summary>
         public void CalcularPaseAtras(ListaTareas listaTareas)
         {
-            [cite_start]// Primero, encontramos la duración total del proyecto, que es el EF más alto de todas las tareas. 
+            // Primero, encontramos la duración total del proyecto, que es el EF más alto de todas las tareas. 
             double duracionProyecto = 0;
             NodoTarea? nodoActual = listaTareas.GetInicio();
             while (nodoActual != null)
@@ -100,14 +100,14 @@ namespace ProyectoPert.Servicios
             {
                 var tarea = nodo.Dato;
                 
-                [cite_start]// Si la tarea no tiene sucesoras (es una tarea final), su LF es la duración del proyecto. [cite: 37]
+                // Si la tarea no tiene sucesoras (es una tarea final), su LF es la duración del proyecto. [cite: 37]
                 if (tarea.Sucesores.GetInicio() == null)
                 {
                     tarea.LF = duracionProyecto;
                 }
                 else
                 {
-                    [cite_start]// El LF es el mínimo de los LS de todas sus sucesoras. 
+                    // El LF es el mínimo de los LS de todas sus sucesoras. 
                     double minLS_Sucesores = double.MaxValue;
                     NodoSucesor? sucesor = tarea.Sucesores.GetInicio();
                     while (sucesor != null)
@@ -122,7 +122,7 @@ namespace ProyectoPert.Servicios
                     tarea.LF = minLS_Sucesores;
                 }
 
-                [cite_start]// El Inicio Tardío (LS) se calcula como LF - Te. 
+                // El Inicio Tardío (LS) se calcula como LF - Te. 
                 tarea.LS = tarea.LF - tarea.TiempoEsperado;
             }
         }
@@ -137,11 +137,11 @@ namespace ProyectoPert.Servicios
             {
                 var tarea = actual.Dato;
 
-                [cite_start]// Fórmula de la Holgura: S = LF - EF o S = LS - ES. 
+                // Fórmula de la Holgura: S = LF - EF o S = LS - ES. 
                 // Usamos Math.Round para evitar pequeñas imprecisiones con los números de punto flotante.
                 tarea.Holgura = Math.Round(tarea.LF - tarea.EF, 5);
 
-                [cite_start]// Las tareas con holgura cero forman la ruta crítica. 
+                // Las tareas con holgura cero forman la ruta crítica. 
                 tarea.EsCritica = (tarea.Holgura == 0);
                 
                 actual = actual.Siguiente;

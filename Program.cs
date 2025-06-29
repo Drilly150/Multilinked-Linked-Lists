@@ -21,13 +21,13 @@ namespace ProyectoPert
             // 1. Instanciamos el gestor del proyecto. Este objeto manejará toda la lógica.
             var gestorProyecto = new GestorProyecto();
 
-            [cite_start]// 2. Se cargan los datos de ejemplo al iniciar, como lo requiere el documento[cite: 192].
+            // 2. Se cargan los datos de ejemplo al iniciar, como lo requiere el documento[cite: 192].
             gestorProyecto.PrecargarDatosDeEjemplo();
 
             Console.WriteLine("==================================================");
             Console.WriteLine(" BIENVENIDO AL SISTEMA DE CÁLCULO DE GRÁFICAS PERT");
             Console.WriteLine("==================================================");
-            [cite_start]Console.WriteLine("Los datos del proyecto de ejemplo han sido cargados[cite: 192].");
+            Console.WriteLine("Los datos del proyecto de ejemplo han sido cargados.");
 
             bool salir = false;
             while (!salir)

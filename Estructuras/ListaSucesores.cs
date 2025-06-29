@@ -4,7 +4,7 @@ namespace ProyectoPert.Estructuras
     /// <summary>
     /// Implementación de una lista simplemente enlazada para almacenar los IDs
     /// de las tareas sucesoras o predecesoras.
-    [cite_start]/// Cumple con el requisito de no usar colecciones de .NET[cite: 191].
+    /// Cumple con el requisito de no usar colecciones de .NET[cite: 191].
     /// </summary>
     public class ListaSucesores
     {
