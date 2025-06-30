@@ -69,13 +69,13 @@ namespace ProyectoPert
                         break;
 
                     case "5":
-                        // Funcionalidad futura.
-                        Console.WriteLine("\nFuncionalidad de modificar aún no implementada.");
+                        // Llama al método para modificar una tarea.
+                        gestorProyecto.ModificarTarea();
                         break;
 
                     case "6":
-                        // Funcionalidad futura.
-                        Console.WriteLine("\nFuncionalidad de eliminar aún no implementada.");
+                        // Llama al método para eliminar una tarea.
+                        gestorProyecto.EliminarTarea();
                         break;
 
                     case "7":

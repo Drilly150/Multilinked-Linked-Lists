@@ -4,16 +4,14 @@ namespace ProyectoPert.Estructuras
     /// <summary>
     /// Implementación de una lista simplemente enlazada para almacenar los IDs
     /// de las tareas sucesoras o predecesoras.
-    /// Cumple con el requisito de no usar colecciones de .NET[cite: 191].
     /// </summary>
     public class ListaSucesores
     {
-        // El único punto de acceso a la lista. Es el primer nodo.
         private NodoSucesor? _inicio;
 
         public ListaSucesores()
         {
-            _inicio = null; // Una lista nueva siempre comienza vacía.
+            _inicio = null;
         }
 
         /// <summary>
@@ -24,24 +22,50 @@ namespace ProyectoPert.Estructuras
         {
             NodoSucesor nuevoNodo = new NodoSucesor(idTarea);
 
-            // Caso 1: La lista está vacía.
             if (_inicio == null)
             {
                 _inicio = nuevoNodo;
-                return; // Terminamos la ejecución del método.
+                return;
             }
 
-            // Caso 2: La lista ya tiene nodos. Hay que recorrerla hasta el final.
             NodoSucesor actual = _inicio;
             while (actual.Siguiente != null)
             {
                 actual = actual.Siguiente;
             }
-
-            // 'actual' es ahora el último nodo. Lo enlazamos con el nuevo.
             actual.Siguiente = nuevoNodo;
         }
-        
+
+        /// <summary>
+        /// Elimina un nodo de la lista por su ID de tarea.
+        /// </summary>
+        /// <param name="idTarea">El ID a eliminar.</param>
+        public void Eliminar(string idTarea)
+        {
+            if (_inicio == null) return;
+
+            // Caso 1: El nodo a eliminar es el primero.
+            if (_inicio.IdTarea.Equals(idTarea, StringComparison.OrdinalIgnoreCase))
+            {
+                _inicio = _inicio.Siguiente;
+                return;
+            }
+
+            // Caso 2: El nodo a eliminar está en medio o al final.
+            NodoSucesor actual = _inicio;
+            while (actual.Siguiente != null && !actual.Siguiente.IdTarea.Equals(idTarea, StringComparison.OrdinalIgnoreCase))
+            {
+                actual = actual.Siguiente;
+            }
+
+            // Si encontramos el nodo (es decir, actual.Siguiente no es nulo)
+            if (actual.Siguiente != null)
+            {
+                // Se salta el nodo a eliminar, enlazando el actual con el siguiente del siguiente.
+                actual.Siguiente = actual.Siguiente.Siguiente;
+            }
+        }
+
         /// <summary>
         /// Devuelve el primer nodo de la lista para poder recorrerla desde fuera.
         /// </summary>
