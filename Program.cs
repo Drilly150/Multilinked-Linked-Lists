@@ -37,10 +37,11 @@ namespace ProyectoPert
                 Console.WriteLine("1. Mostrar tabla de resultados PERT");
                 Console.WriteLine("2. Ejecutar/Recalcular análisis PERT");
                 Console.WriteLine("3. Mostrar solo la Ruta Crítica");
-                Console.WriteLine("4. Agregar una nueva tarea");
-                Console.WriteLine("5. Modificar una tarea existente");
-                Console.WriteLine("6. Eliminar una tarea");
-                Console.WriteLine("7. Salir");
+                Console.WriteLine("4. Mostrar Diagrama PERT");
+                Console.WriteLine("5. Agregar una nueva tarea");
+                Console.WriteLine("6. Modificar una tarea existente");
+                Console.WriteLine("7. Eliminar una tarea");
+                Console.WriteLine("8. Salir");
                 Console.Write(">> Seleccione una opción: ");
 
                 // 4. Leemos la opción del usuario y actuamos en consecuencia.
@@ -64,21 +65,26 @@ namespace ProyectoPert
                         break;
                         
                     case "4":
+                        // Muestra el diagrama de las tareas que estan en el momento. 
+                        gestorProyecto.MostrarDiagramaTexto();
+                        break;
+
+                    case "5":
                         // Llama al método para agregar una nueva tarea.
                         gestorProyecto.AgregarTarea();
                         break;
 
-                    case "5":
-                        // Funcionalidad futura.
-                        Console.WriteLine("\nFuncionalidad de modificar aún no implementada.");
-                        break;
-
                     case "6":
-                        // Funcionalidad futura.
-                        Console.WriteLine("\nFuncionalidad de eliminar aún no implementada.");
+                        // Llama al método para modificar una tarea.
+                        gestorProyecto.ModificarTarea();
                         break;
 
                     case "7":
+                        // Llama al método para eliminar una tarea.
+                        gestorProyecto.EliminarTarea();
+                        break;
+
+                    case "8":
                         salir = true;
                         Console.WriteLine("\nGracias por utilizar el sistema. ¡Hasta pronto!");
                         break;
