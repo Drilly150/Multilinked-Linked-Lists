@@ -1,10 +1,9 @@
-// Definimos el namespace para organizar nuestras estructuras de datos.
 namespace ProyectoPert.Estructuras
 {
-    /// <summary>
+    
     /// Implementación de una lista simplemente enlazada para almacenar los IDs
     /// de las tareas sucesoras o predecesoras.
-    /// </summary>
+    
     public class ListaSucesores
     {
         private NodoSucesor? _inicio;
@@ -14,10 +13,9 @@ namespace ProyectoPert.Estructuras
             _inicio = null;
         }
 
-        /// <summary>
         /// Agrega un nuevo ID de tarea al final de la lista.
-        /// </summary>
-        /// <param name="idTarea">El ID de la tarea a agregar.</param>
+        
+        /// name="idTarea">El ID de la tarea a agregar.
         public void Agregar(string idTarea)
         {
             NodoSucesor nuevoNodo = new NodoSucesor(idTarea);
@@ -36,10 +34,8 @@ namespace ProyectoPert.Estructuras
             actual.Siguiente = nuevoNodo;
         }
 
-        /// <summary>
         /// Elimina un nodo de la lista por su ID de tarea.
-        /// </summary>
-        /// <param name="idTarea">El ID a eliminar.</param>
+        /// name="idTarea">El ID a eliminar.
         public void Eliminar(string idTarea)
         {
             if (_inicio == null) return;
@@ -66,10 +62,8 @@ namespace ProyectoPert.Estructuras
             }
         }
 
-        /// <summary>
         /// Devuelve el primer nodo de la lista para poder recorrerla desde fuera.
-        /// </summary>
-        /// <returns>El nodo inicial de la lista.</returns>
+        /// El nodo inicial de la lista.
         public NodoSucesor? GetInicio()
         {
             return _inicio;

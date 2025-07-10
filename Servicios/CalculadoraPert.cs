@@ -5,15 +5,15 @@ using System.Collections.Generic; // Usaremos una lista temporal para el Pase Ad
 
 namespace ProyectoPert.Servicios
 {
-    /// <summary>
+    
     /// Contiene toda la lógica para realizar los cálculos PERT.
     /// Funciona como un servicio que recibe los datos, los procesa y los actualiza.
-    /// </summary>
+    
     public class CalculadoraPert
     {
-        /// <summary>
+        
         /// Paso 1: Calcula el Tiempo Esperado (Te) y la Varianza (V) para cada tarea.
-        /// </summary>
+        
         public void CalcularTiemposEsperados(ListaTareas listaTareas)
         {
             NodoTarea? actual = listaTareas.GetInicio();
@@ -30,9 +30,9 @@ namespace ProyectoPert.Servicios
             }
         }
 
-        /// <summary>
-        /// Paso 2: Realiza el Pase Adelante para calcular ES (Inicio Temprano) y EF (Finalización Temprana). [cite: 23]
-        /// </summary>
+        
+        /// Paso 2: Realiza el Pase Adelante para calcular ES (Inicio Temprano) y EF (Finalización Temprana)
+        
         public void CalcularPaseAdelante(ListaTareas listaTareas)
         {
             NodoTarea? actual = listaTareas.GetInicio();
@@ -40,7 +40,7 @@ namespace ProyectoPert.Servicios
             {
                 var tarea = actual.Dato;
                 
-                // Las tareas sin predecesoras comienzan en tiempo 0. [cite: 26]
+                // Las tareas sin predecesoras comienzan en tiempo 0.
                 if (tarea.Predecesores.GetInicio() == null)
                 {
                     tarea.ES = 0;
@@ -69,9 +69,9 @@ namespace ProyectoPert.Servicios
             }
         }
 
-        /// <summary>
-        /// Paso 3: Realiza el Pase Hacia Atrás para calcular LF (Finalización Tardía) y LS (Inicio Tardío). [cite: 33]
-        /// </summary>
+        
+        /// Paso 3: Realiza el Pase Hacia Atrás para calcular LF (Finalización Tardía) y LS (Inicio Tardío).
+        
         public void CalcularPaseAtras(ListaTareas listaTareas)
         {
             // Primero, encontramos la duración total del proyecto, que es el EF más alto de todas las tareas. 
@@ -100,7 +100,7 @@ namespace ProyectoPert.Servicios
             {
                 var tarea = nodo.Dato;
                 
-                // Si la tarea no tiene sucesoras (es una tarea final), su LF es la duración del proyecto. [cite: 37]
+                // Si la tarea no tiene sucesoras (es una tarea final), su LF es la duración del proyecto.
                 if (tarea.Sucesores.GetInicio() == null)
                 {
                     tarea.LF = duracionProyecto;
@@ -127,9 +127,9 @@ namespace ProyectoPert.Servicios
             }
         }
         
-        /// <summary>
+        
         /// Paso 4: Calcula la Holgura (Slack) y determina la Ruta Crítica.
-        /// </summary>
+        
         public void CalcularHolguraYRutaCritica(ListaTareas listaTareas)
         {
             NodoTarea? actual = listaTareas.GetInicio();

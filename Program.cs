@@ -6,22 +6,21 @@ using System;
 // El namespace ayuda a organizar el código y evitar colisiones de nombres.
 namespace ProyectoPert
 {
-    /// <summary>
+    
     /// Clase principal que contiene el punto de entrada de la aplicación de consola.
     /// Gestiona el menú de usuario y la interacción principal.
-    /// </summary>
+    
     class Program
     {
-        /// <summary>
+        
         /// Método principal y punto de entrada de la ejecución del programa.
-        /// </summary>
-        /// <param name="args">Argumentos de línea de comandos (no los usaremos).</param>
+        /// name="args">Argumentos de línea de comandos (no los usaremos).
         static void Main(string[] args)
         {
             // 1. Instanciamos el gestor del proyecto. Este objeto manejará toda la lógica.
             var gestorProyecto = new GestorProyecto();
 
-            // 2. Se cargan los datos de ejemplo al iniciar, como lo requiere el documento[cite: 192].
+            // 2. Se cargan los datos de ejemplo al iniciar.
             gestorProyecto.PrecargarDatosDeEjemplo();
 
             Console.WriteLine("==================================================");

@@ -3,9 +3,9 @@ using ProyectoPert.Entidades;
 
 namespace ProyectoPert.Estructuras
 {
-    /// <summary>
+    
     /// Implementación de una lista doblemente enlazada para almacenar todas las tareas del proyecto.
-    /// </summary>
+    
     public class ListaTareas
     {
         private NodoTarea? _inicio; // Referencia al primer nodo (Head).
@@ -17,10 +17,8 @@ namespace ProyectoPert.Estructuras
             _fin = null;
         }
 
-        /// <summary>
         /// Agrega una nueva tarea al final de la lista.
-        /// </summary>
-        /// <param name="tarea">La tarea a agregar.</param>
+        /// name="tarea">La tarea a agregar.
         public void Agregar(Tarea tarea)
         {
             NodoTarea nuevoNodo = new NodoTarea(tarea);
@@ -38,11 +36,9 @@ namespace ProyectoPert.Estructuras
             }
         }
 
-        /// <summary>
         /// Busca una Tarea en la lista por su identificador único.
-        /// </summary>
-        /// <param name="id">El ID de la tarea a buscar.</param>
-        /// <returns>El objeto Tarea si se encuentra; de lo contrario, null.</returns>
+        /// name="id">El ID de la tarea a buscar.
+        /// El objeto Tarea si se encuentra; de lo contrario, null.
         public Tarea? BuscarPorId(string id)
         {
             NodoTarea? actual = _inicio;
@@ -57,10 +53,8 @@ namespace ProyectoPert.Estructuras
             return null;
         }
 
-        /// <summary>
         /// Elimina una tarea de la lista por su ID.
-        /// </summary>
-        /// <param name="id">El ID de la tarea a eliminar.</param>
+        /// name="id">El ID de la tarea a eliminar.
         public void Eliminar(string id)
         {
             NodoTarea? actual = _inicio;
@@ -95,10 +89,8 @@ namespace ProyectoPert.Estructuras
             }
         }
 
-        /// <summary>
         /// Devuelve el primer nodo para permitir el recorrido externo de la lista.
-        /// </summary>
-        /// <returns>El nodo inicial de la lista.</returns>
+        /// El nodo inicial de la lista.
         public NodoTarea? GetInicio()
         {
             return _inicio;
