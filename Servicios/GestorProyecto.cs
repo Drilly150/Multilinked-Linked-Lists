@@ -7,10 +7,10 @@ using System.Text;
 
 namespace ProyectoPert.Servicios
 {
-    /// <summary>
+    
     /// Clase que orquesta las operaciones del proyecto.
     /// Conecta la interfaz de usuario con las estructuras de datos y los servicios de cálculo.
-    /// </summary>
+    
     public class GestorProyecto
     {
         private readonly ListaTareas _listaTareas;
@@ -21,11 +21,9 @@ namespace ProyectoPert.Servicios
             _listaTareas = new ListaTareas();
             _calculadora = new CalculadoraPert();
         }
-
-        #region Precarga de Datos
-        /// <summary>
+        
         /// Cumple con el requisito de precargar los datos del proyecto de ejemplo.
-        /// </summary>
+        
         public void PrecargarDatosDeEjemplo()
         {
             _listaTareas.Agregar(new Tarea("A", "Definir Concepto y Tema", 2, 3, 4));
@@ -47,9 +45,8 @@ namespace ProyectoPert.Servicios
             EstablecerDependencia("G", "H");
         }
 
-        /// <summary>
         /// Método de ayuda para conectar dos tareas.
-        /// </summary>
+        
         private void EstablecerDependencia(string idPredecesor, string idSucesor)
         {
             var tareaPredecesora = _listaTareas.BuscarPorId(idPredecesor);
@@ -61,13 +58,9 @@ namespace ProyectoPert.Servicios
                 tareaSucesora.Predecesores.Agregar(idPredecesor);
             }
         }
-        #endregion
 
-        #region Métodos Públicos (Llamados desde el Menú)
-
-        /// <summary>
         /// Muestra una tabla con los resultados del análisis PERT para cada tarea.
-        /// </summary>
+        
         public void MostrarTareas()
         {
             Console.WriteLine("\n--- LISTA DE TAREAS Y RESULTADOS PERT ---");
@@ -94,9 +87,8 @@ namespace ProyectoPert.Servicios
             }
         }
 
-        /// <summary>
         /// Orquesta la ejecución de todos los pasos del cálculo PERT.
-        /// </summary>
+        
         public void EjecutarCalculos()
         {
             Console.WriteLine("\n--- REALIZANDO CÁLCULOS PERT ---");
@@ -111,9 +103,8 @@ namespace ProyectoPert.Servicios
             MostrarRutaCritica();
         }
         
-        /// <summary>
         /// Muestra la secuencia de tareas que componen la ruta crítica.
-        /// </summary>
+        
         public void MostrarRutaCritica()
         {
             Console.WriteLine("\n--- RUTA CRÍTICA DEL PROYECTO ---");
@@ -139,9 +130,8 @@ namespace ProyectoPert.Servicios
             }
         }
 
-        /// <summary>
         /// Guía al usuario para agregar una nueva tarea con validaciones.
-        /// </summary>
+        
         public void AgregarTarea()
         {
             Console.WriteLine("\n--- AGREGAR NUEVA TAREA ---");
@@ -203,9 +193,8 @@ namespace ProyectoPert.Servicios
             Console.ResetColor();
         }
 
-        /// <summary>
         /// Permite al usuario modificar una tarea existente.
-        /// </summary>
+        
         public void ModificarTarea()
         {
             Console.WriteLine("\n--- MODIFICAR TAREA ---");
@@ -260,9 +249,8 @@ namespace ProyectoPert.Servicios
             }
         }
 
-        /// <summary>
         /// Elimina una tarea del proyecto, validando dependencias.
-        /// </summary>
+        
         public void EliminarTarea()
         {
             Console.WriteLine("\n--- ELIMINAR TAREA ---");
@@ -309,9 +297,8 @@ namespace ProyectoPert.Servicios
 
         // En el archivo Servicios/GestorProyecto.cs, dentro de la clase GestorProyecto.
 
-        /// <summary>
-        /// Muestra una representación textual del grafo PERT, similar a la del documento.
-        /// </summary>
+        /// Muestra una representación textual del grafo PERT.
+        
         public void MostrarDiagramaTexto()
         {
             Console.WriteLine("\n--- DIAGRAMA DE LA GRÁFICA PERT ---");
@@ -327,7 +314,7 @@ namespace ProyectoPert.Servicios
             var cola = new Queue<Tarea>();
             var nodosVisitados = new HashSet<string>();
 
-            // 1. Encontrar y encolar todas las tareas iniciales (sin predecesoras).
+            // 1. Encontrar y encolar todas las tareas iniciales.
             var nodoActual = listaTareas.GetInicio();
             while (nodoActual != null)
             {
@@ -391,6 +378,5 @@ namespace ProyectoPert.Servicios
             Console.WriteLine("[FIN]");
         }
 
-        #endregion
     }
 }
